@@ -1,0 +1,10 @@
+#header {
+  height: 90vh;
+}
+
+.artwork {
+  position: relative;
+  max-height: 90%;
+  margin: 20px;
+  opacity: 0;
+}

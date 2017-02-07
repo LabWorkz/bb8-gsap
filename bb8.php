@@ -17,11 +17,16 @@
  * Version: 1.0
  * Author: <a href="http://www.labworkz.com">LabWorkz LLC</a>
  * Author URI: http://www.labworkz.com
+ *
+ * USAGE: [bb8-block]
  **/
 class BB8
 {
     private static $instance = false;
 
+    /**
+     * @return BB8|bool
+     */
     public static function get_instance()
     {
 
@@ -33,6 +38,9 @@ class BB8
 
     }
 
+    /**
+     * BB8 constructor.
+     */
     public function __construct()
     {
         self::$instance = $this;
@@ -40,21 +48,28 @@ class BB8
         add_action('init', array($this, 'init'));
     }
 
+    /**
+     * Init Scripts and Register Shortcode
+     */
     public function init()
     {
         add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
+        add_action('wp_enqueue_styles', array($this, 'load_styles'));
         add_shortcode('bb8-block', array($this, 'renderShortCode'));
     }
 
-
+    /**
+     * Load JS Scripts
+     */
     public function load_scripts()
     {
-        wp_enqueue_style("TweenMax-js", 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js');
+        wp_enqueue_script("TweenMax-js", 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js');
         wp_enqueue_script('bb8-js', plugins_url("js/index.js", __FILE__),array('jquery',"TweenMax-js"));
-        wp_enqueue_script('yneggb-js', plugins_url("js/yneggb.js", __FILE__));
-
     }
 
+    /**
+     * Load CSS Styles
+     */
     public function load_styles()
     {
         wp_enqueue_style('normalize-css', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css');
@@ -62,6 +77,10 @@ class BB8
 
     }
 
+    /**
+     * Render ShortCode
+     * @return string
+     */
     public static function renderShortCode()
     {
         return file_get_contents(plugins_url('view.php', __FILE__));

@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>BB8 from Starwars ⚾️ – with SVG & GSAP</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
-</head>
-
-<body>
   <section id="bb8-block">
 	<svg class="artwork" data-bb8="svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 2935 2935" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<defs>
@@ -657,10 +643,3 @@
 		</g>
 	</svg>
 </section>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
-<script src='js/yneggb.js'></script>
-
-    <script src="js/index.js"></script>
-
-</body>
-</html>
